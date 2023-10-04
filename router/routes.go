@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/guimassoqueto/go-jobs/handler/opening"
+	"github.com/guimassoqueto/go-jobs/handler"
 )
 
 type User struct {
@@ -10,6 +10,9 @@ type User struct {
 }
 
 func InitializeRoute(router *gin.Engine) {
+	// Inititalizer Handler
+	handler.InitializeHandler()
+
 	v1 := router.Group("/api/v1")
 	{
 		v1.GET("/opening", handler.ShowOpeningHandler)
