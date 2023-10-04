@@ -1,2 +1,2 @@
 run:
-	go run router/router.go
+	go run main.go
