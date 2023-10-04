@@ -48,3 +48,24 @@ func (cor *CreateOpeningRequest) Validate() error {
 
 	return nil
 }
+
+
+// UpdateOpening Request Format
+type UpdateOpeningRequest struct {
+	Role string `json:"role"`
+	Company string `json:"company"`
+	Location string `json:"location"`
+	Remote *bool `json:"remote"`
+	Link string `json:"link"`
+	Salary int64 `json:"salary"`
+}
+
+func (uor *UpdateOpeningRequest) Validate() error {
+	// if any field is provided, validation is truth
+	validBody := uor.Salary > 0 || uor.Role != "" || uor.Remote != nil && uor.Location != "" || uor.Link != "" || uor.Company != ""
+	if validBody {
+		return nil
+	}
+
+	return fmt.Errorf("at least one valid field must be provided")
+}
