@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/guimassoqueto/go-jobs/handler"
+	"github.com/guimassoqueto/go-jobs/handler/opening"
 )
 
 type User struct {
